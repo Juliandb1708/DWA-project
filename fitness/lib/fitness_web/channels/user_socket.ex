@@ -3,6 +3,7 @@ defmodule FitnessWeb.UserSocket do
 
   ## Channels
   # channel "room:*", FitnessWeb.RoomChannel
+  channel "workouts:*", FitnessWeb.WorkoutsChannel
 
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After

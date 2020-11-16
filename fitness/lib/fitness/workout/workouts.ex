@@ -9,6 +9,7 @@ defmodule Fitness.Workouts do
         field :long_description, :string
         field :date, :utc_datetime
         field :is_live, :boolean, default: false
+        field :places_available, :integer, default: 25
         belongs_to :categories, Fitness.Categories
         many_to_many :instructors, Fitness.Instructors, join_through: Fitness.WorkoutInstructors, on_replace: :delete
 

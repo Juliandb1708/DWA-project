@@ -27,4 +27,10 @@ defmodule FitnessWeb.WorkoutController do
             {:error, reasons} -> create(conn, %{errors: reasons})
         end
     end
+
+    def reserve(conn, %{"id" => id}) do
+        {:ok, workouts} = Fitness.WorkoutQueries.decrease_places(id)
+        FitnessWeb.WorkoutsChannel.send_update(workouts)
+        redirect(conn, to: Routes.workout_path(conn, :show, id))
+    end
 end

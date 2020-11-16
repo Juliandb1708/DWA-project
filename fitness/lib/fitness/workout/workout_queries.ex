@@ -16,4 +16,10 @@ defmodule Fitness.WorkoutQueries do
     def get_all_categories, do: Repo.all(from c in Categories, select: {c.title, c.id}, order_by: c.title)
 
     def get_workouts_for_select, do: Repo.all(from w in Workouts, select: {w.title, w.id}, order_by: w.title)
+
+    def decrease_places(id) do
+        workout = Repo.get!(Workouts, id)
+        changes = Ecto.Changeset.change(workout, places_available: workout.places_available - 1)
+        Repo.update(changes)
+    end
 end

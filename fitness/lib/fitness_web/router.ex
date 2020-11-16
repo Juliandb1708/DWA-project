@@ -20,6 +20,8 @@ defmodule FitnessWeb.Router do
     get "/workouts/new", WorkoutController, :create
     post "/workouts/new", WorkoutController, :add
     get "/workouts/:id", WorkoutController, :show
+    post "/workouts/:id/reserve", WorkoutController, :reserve
+    
     get "/instructors/new", InstructorController, :create
     post "/instructors/new", InstructorController, :add
     get "/instructors/bind", InstructorController, :bind
