@@ -1,0 +1,17 @@
+<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">
+            <%= if @workout.is_live === true do %>
+            <span class="badge badge-danger">LIVE</span>
+            <%= else %>
+            <span class="badge badge-info">SOON</span>
+            <% end %>
+            [<%= @workout.categories.title %>] <%= @workout.title %></h5>
+
+            <form action="<%= Routes.workout_path(@conn, :show, @workout.id) %>">
+                <button type="submit" class="btn btn-dark">Details &raquo;</button>
+            </form>
+    </div>
+    <p class="mb-1"><%= @workout.short_description %></p>
+    <small class="text-muted"><b><%= format_date(@workout.date) %></b> - <%= @workout.instructor %></small>
+</a>

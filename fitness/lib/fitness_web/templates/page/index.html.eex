@@ -1,0 +1,18 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">DWA Fitness</h1>
+    <p class="lead">Hard werken, leuke sportoefeningen doen</p>
+  </div>
+</div>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <h3 style="font-weight: normal">Workouts</h3>
+  </ol>
+</nav>
+
+<div class="list-group">
+<%= for w <- @workouts do %>
+  <%= render("summary.html", workout: w, conn: @conn) %>
+<% end %>
+</div>
