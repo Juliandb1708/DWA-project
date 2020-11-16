@@ -13,5 +13,5 @@
             </form>
     </div>
     <p class="mb-1"><%= @workout.short_description %></p>
-    <small class="text-muted"><b><%= format_date(@workout.date) %></b> - <%= @workout.instructor %></small>
+    <small class="text-muted"><b><%= format_date(@workout.date) %></b></small>
 </a>

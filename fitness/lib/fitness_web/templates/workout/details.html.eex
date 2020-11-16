@@ -20,11 +20,19 @@
     <% end %>
 
     <%= @workout.title %>
-    <small> ~ <%= @workout.instructor %></small>
 </h1>
 
 <p><%= format_date(@workout.date) %></p>
 
+<h2>Description</h2>
+
 <p><b><%= @workout.short_description %></b></p>
 
 <p><%= @workout.long_description %></p>
+
+<h2>Instructors</h2>
+<ul>
+  <%= for i <- @instructors do %>
+    <li><%= i.name %> (<%= i.email %>)</li>
+  <% end %>
+</ul>

@@ -1,0 +1,28 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Bind an Instructor</h1>
+    <p class="lead">Bind an instructor to a workout</p>
+  </div>
+</div>
+
+<%= form_for @changeset, Routes.instructor_path(@conn, :createbind), fn f -> %>
+    <div class="form-row">
+        <div class="col">
+            <div class="form-group">
+                <%= label f, :workouts_id, "Workout" %>
+                <%= select f, :workouts_id, @workouts, class: "form-control" %>
+                <%= error_tag f, :workouts_id %>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="form-group">
+                <%= label f, :instructors_id, "Instructor" %>
+                <%= select f, :instructors_id, @instructors, class: "form-control" %>
+                <%= error_tag f, :instructors_id %>
+            </div>
+        </div>
+    </div>
+
+    <%= submit "Bind", class: "btn btn-primary", style: "float: right" %>
+<% end %>

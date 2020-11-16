@@ -22,6 +22,8 @@ defmodule FitnessWeb.Router do
     get "/workouts/:id", WorkoutController, :show
     get "/instructors/new", InstructorController, :create
     post "/instructors/new", InstructorController, :add
+    get "/instructors/bind", InstructorController, :bind
+    post "/instructors/bind", InstructorController, :createbind
   end
 
   # Other scopes may use custom stacks.

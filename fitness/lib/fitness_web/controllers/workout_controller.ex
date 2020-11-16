@@ -3,7 +3,8 @@ defmodule FitnessWeb.WorkoutController do
 
     def show(conn, %{"id" => id}) do
         workout = Fitness.WorkoutQueries.get_by_id(id)
-        render(conn, "details.html", workout: workout)
+        instructors = Fitness.InstructorQueries.get_instructors_by_workout(id)
+        render(conn, "details.html", workout: workout, instructors: instructors)
     end
 
     def create(conn, %{errors: errors}) do

@@ -14,4 +14,6 @@ defmodule Fitness.WorkoutQueries do
     def get_by_id(id), do: Repo.get(Workouts, id)
 
     def get_all_categories, do: Repo.all(from c in Categories, select: {c.title, c.id}, order_by: c.title)
+
+    def get_workouts_for_select, do: Repo.all(from w in Workouts, select: {w.title, w.id}, order_by: w.title)
 end

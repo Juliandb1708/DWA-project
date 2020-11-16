@@ -22,7 +22,10 @@
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="<%= Routes.instructor_path(@conn, :create) %>">Add Instructor</a>
-            </li>            
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="<%= Routes.instructor_path(@conn, :bind) %>">Bind Instructor</a>
+            </li>                         
           </ul>
           <span class="navbar-text">
             <ul class="navbar-nav mr-auto">
