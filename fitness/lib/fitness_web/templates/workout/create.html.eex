@@ -32,34 +32,29 @@
     <div class="form-row">
         <div class="col">
             <div class="form-group">
-                <%= label f, :instructor, "Instructor" %>
-                <%= text_input f, :instructor, class: "form-control" %>
-                <%= error_tag f, :instructor %>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="form-group">
                 <%= label f, :date, "Date & Time" %>
                 <%= text_input f, :date, class: "form-control", type: "datetime-local" %>
                 <%= error_tag f, :date %>
             </div>
         </div>
-    </div>    
 
-    <div class="form-row">
         <div class="col">
             <div class="form-group">
                 <%= label f, :short_description, "Short description" %>
                 <%= textarea f, :short_description, class: "form-control", rows: 3 %>
                 <%= error_tag f, :short_description %>
             </div>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="col">
 
             <div class="form-group">
                 <%= checkbox f, :is_live%>
                 <%= label f, :is_live, "This workout is immediately live" %>
                 <%= error_tag f, :is_live %>
-            </div>            
+            </div>
         </div>
 
         <div class="col">
@@ -69,7 +64,7 @@
                 <%= error_tag f, :long_description %>
             </div>
         </div>
-    </div>   
+    </div>
 
     <%= submit "Add Workout", class: "btn btn-primary", style: "float: right" %>
 <% end %>

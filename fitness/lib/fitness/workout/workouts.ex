@@ -4,7 +4,6 @@ defmodule Fitness.Workouts do
 
     schema "workouts" do
         field :title, :string
-        field :instructor, :string
         field :short_description, :string
         field :long_description, :string
         field :date, :utc_datetime
@@ -19,7 +18,7 @@ defmodule Fitness.Workouts do
     @doc false
     def changeset(event, attrs \\ %{}) do
         event
-        |> cast(attrs, [:title, :instructor, :short_description, :long_description, :date, :is_live, :categories_id])
-        |> validate_required([:title, :instructor, :short_description, :date])
+        |> cast(attrs, [:title, :short_description, :long_description, :date, :is_live, :categories_id])
+        |> validate_required([:title, :short_description, :date])
     end
 end

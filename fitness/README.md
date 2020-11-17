@@ -1,20 +1,23 @@
-# Fitness
+# DWA Fitness
 
-To start your Phoenix server:
+## Preview
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Install Node.js dependencies with `npm install` inside the `assets` directory
-  * Start Phoenix endpoint with `mix phx.server`
+##### Homepage
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+![Home page](/docs/home_page.PNG)
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+##### Workout detail page
 
-## Learn more
+![Detail page](/docs/detail_page.PNG)
 
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+##### Create workout page
+
+![Create workout](/docs/add_workout.PNG)
+
+##### Create instructor page
+
+![Create workout](/docs/add_instructor.PNG)
+
+##### Bind instructor page
+
+![Create workout](/docs/bind_instructor.PNG)
