@@ -1,0 +1,69 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">DWA Fitness</h1>
+    <p class="lead">Hard werken, leuke sportoefeningen doen</p>
+  </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div style="float:right"><p>
+          <div class="form-row">
+            <div class="col-4">
+            <form phx-change="title_search">
+            <input type="text" name="title" class="form-control" value="<%= @title %>"
+                placeholder="Search" autofocus autocomplete="off" />
+            </form>
+              </div>
+
+            <div class="col-8">
+            <button phx-click="show_live" class="btn btn-danger">
+                Live only
+            </button>
+
+            <button phx-click="show_soon" class="btn btn-info">
+                Soon only
+            </button>
+
+            <button phx-click="show_all" class="btn btn-primary">
+                X
+            </button>
+            </div>
+            </div>
+        </p></div>
+    </div>
+</div>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <h3 style="font-weight: normal">Workouts</h3>
+  </ol>
+</nav>
+
+<div class="list-group">
+
+      <%= if @loading do %>
+          <div style="text-align: center"><h4>Loading...</h4>
+      <% end %>
+
+      <%= if length(@workouts) == 0 && !@loading do %>
+        <div style="text-align: center"><h4>Er zijn geen resultaten gevonden</h4></div>
+      <% end %>
+
+<%= for w <- @workouts do %>
+  <a href="<%= Routes.live_path(@socket, FitWeb.WorkoutsLive, w.id) %>" class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">
+            <%= if w.is_live === true do %>
+            <span class="badge badge-danger">LIVE</span>
+            <%= else %>
+            <span class="badge badge-info">SOON</span>
+            <% end %>
+            [<%= w.categories.title %>] <%= w.title %>
+        </h5>
+    </div>
+    <p class="mb-1"><%= w.short_description %></p>
+    <small class="text-muted"><b><%= format_date(w.date) %></b></small>
+</a>
+<% end %>
+</div>

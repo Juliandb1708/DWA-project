@@ -1,0 +1,40 @@
+<%= if @workout.is_live === true do %>
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" style="max-height: 300px;" src="https://photos5.appleinsider.com/gallery/37686-70948-Apple-Event----September-15-33-29-screenshot-xl.jpg" alt="Live video">
+    </div>
+  </div>
+</div>
+<%= else %>
+    <div class="alert alert-primary" role="alert" style="margin-top: 20px">
+        Deze sportmeeting begint op <%= format_date(@workout.date) %>
+    </div>
+<% end %>
+
+<h1>
+    <%= if @workout.is_live === true do %>
+        <span class="badge badge-danger">LIVE</span>
+    <%= else %>
+        <span class="badge badge-info">SOON</span>
+    <% end %>
+
+    <%= @workout.title %>
+</h1>
+
+<p><%= format_date(@workout.date) %></p>
+
+<h2>Description</h2>
+
+<p><b><%= @workout.short_description %></b></p>
+
+<p><%= @workout.long_description %></p>
+
+<h2>Instructors</h2>
+<ul>
+  <%= for i <- @instructors do %>
+    <li><%= i.name %> (<%= i.email %>)</li>
+  <% end %>
+</ul>
+
+<span id="id" data-id="<%= @workout.id %>"></span>

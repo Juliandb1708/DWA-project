@@ -1,0 +1,74 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Create a Workout</h1>
+    <p class="lead">Create your own workout and let people join</p>
+  </div>
+</div>
+
+<%= f = form_for @changeset, "#", phx_submit: "save", phx_change: "validate" %>
+<div class="form-row">
+        <div class="col">
+            <div class="form-group">
+                <%= label f, :title, "Title" %>
+                <%= text_input f, :title, class: "form-control" %>
+                <%= error_tag f, :title %>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="form-group">
+                <%= label f, :categories_id, "Category" %>
+                <%= select f, :categories_id, @categories, class: "form-control" %>
+                <%= error_tag f, :categories_id %>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="col">
+            <div class="form-group">
+                <%= checkbox f, :is_live%>
+                <%= label f, :is_live, "This workout is immediately live" %>
+                <%= error_tag f, :is_live %>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="form-group">
+                <%= label f, :date, "Date & Time" %>
+                <%= text_input f, :date, class: "form-control", type: "datetime-local" %>
+                <%= error_tag f, :date %>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="col">
+            <div class="form-group">
+                <%= label f, :short_description, "Short description" %>
+                <%= textarea f, :short_description, class: "form-control", rows: 3 %>
+                <%= error_tag f, :short_description %>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="form-group">
+                <%= label f, :long_description, "Long description" %>
+                <%= textarea f, :long_description, class: "form-control", rows: 5 %>
+                <%= error_tag f, :long_description %>
+            </div>
+            <%= submit "Add Workout", phx_disable_with: "Saving...", class: "btn btn-primary", style: "float: right" %>
+        </div>
+    </div>
+
+<div class="row" style="padding-top:20px; padding-bottom:50px;">
+    <div class="col">
+        <h5>Existing workouts</h5>
+
+        <ul class="list-group">
+            <%= for w <- @workouts do %>
+                <li class="list-group-item">[<%= w.categories.title %>] <%= w.title %></li>
+            <% end %>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <%= csrf_meta_tag() %>
+    <title>DWA ~ Fitness</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+    <script defer phx-track-static type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">DWA Fitness</a>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="<%= Routes.live_path(@conn, FitWeb.CreateWorkoutsLive) %>">Create Workout</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="">Add Instructor</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="">Bind Instructor</a>
+            </li>
+          </ul>
+          <span class="navbar-text">
+            <ul class="navbar-nav mr-auto">
+            <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
+              <li class="nav-item active">
+                <%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home) %>
+              </li>
+            <% end %>
+            </ul>
+          </span>
+        </div>
+      </nav>
+    </header>
+
+    <%= @inner_content %>
+
+  </body>
+</html>
