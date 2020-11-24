@@ -4,11 +4,11 @@
 
 #### Homepage Filtering
 
-![Filtering](./docs/filter.png)
+![Filtering](./docs/filter.PNG)
 
 #### Live Validation
 
-![Validation](./docs/validation.png)
+![Validation](./docs/validation.PNG)
 
 ## Setup
 
